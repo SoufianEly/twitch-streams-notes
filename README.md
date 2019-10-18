@@ -1,5 +1,3 @@
-@REM  => Comment
----------------------------------------------
 SETLOCAL
 
 Set options to control the visibility of environment variables in a batch file.
@@ -34,7 +32,8 @@ cd ~/Desktop/awesome_link
 
 -----------------------------------------------
 
-Maven wrapper : https://www.baeldung.com/maven-wrapper & https://github.com/takari/maven-wrapper
+Maven wrapper : [Maven Wrapper](https://www.baeldung.com/maven-wrapper) & 
+                [Maven Wrapper Github](https://github.com/takari/maven-wrapper)
 
 These files are from Maven wrapper. It works similarly to the Gradle wrapper.
 
@@ -63,9 +62,10 @@ columns - a comma-separated list of values, where each value is an integer or a 
 
 -----------------------------------------------
 
-editorconfig => https://medium.com/@edvinsantonovs/why-development-teams-should-use-editorconfig-f58011b1cc56
+editorconfig => 
 
-https://editorconfig.org/
+[Why should use Editor Config](https://medium.com/@edvinsantonovs/why-development-teams-should-use-editorconfig-f58011b1cc56)
+[Official](https://editorconfig.org/)
 
 EditorConfig helps developers define and maintain consistent coding styles between different editors and IDEs. The EditorConfig project consists of a file format for defining coding styles and a collection of text editor plugins that enable editors to read the file format and adhere to defined styles.
 
@@ -518,7 +518,7 @@ jmustache : Zero dependencies. You can include this single tiny library in your 
 
 proguard - jarjar
 
-https://github.com/spullara/mustache.java +++
+[Mustache](https://github.com/spullara/mustache.java) +++
 
 -----------------------------------------------
 
@@ -698,7 +698,7 @@ public @interface Endpoint
 
 Identifies a type as being an actuator endpoint that provides information about the running application. Endpoints can be exposed over a variety of technologies including JMX and HTTP.
 
-Most @Endpoint classes will declare one or more @ReadOperation, @WriteOperation, @DeleteOperation annotated methods which will be automatically adapted to the exposing technology (JMX, Spring MVC, Spring WebFlux, Jersey etc.).
+Most Endpoint classes will declare one or more ReadOperation,@WriteOperation, DeleteOperation annotated methods which will be automatically adapted to the exposing technology (JMX, Spring MVC, Spring WebFlux, Jersey etc.).
 -----------------------------------------------
 import org.springframework.boot.actuate.autoconfigure.web.server.LocalManagementPort;
 
@@ -708,60 +708,103 @@ Annotation at the field or method/constructor parameter level that injects the H
 WebSecurityConfigurerAdapter  - 
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests((requests) -> {
-			requests.mvcMatchers("/actuator/beans").hasRole("BEANS");
-			requests.requestMatchers(EndpointRequest.to("health", "info")).permitAll();
-			requests.requestMatchers(EndpointRequest.toAnyEndpoint().excluding(MappingsEndpoint.class))
-					.hasRole("ACTUATOR");
-			requests.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll();
-			requests.antMatchers("/foo").permitAll();
-			requests.antMatchers("/**").hasRole("USER");
-		});
-		http.cors(Customizer.withDefaults());
-		http.httpBasic();
+protected void configure(HttpSecurity http) throws Exception {
+	http.authorizeRequests((requests) -> {
+		requests.mvcMatchers("/actuator/beans").hasRole("BEANS");
+		requests.requestMatchers(EndpointRequest.to("health", "info")).permitAll();
+		requests.requestMatchers(EndpointRequest.toAnyEndpoint().excluding(MappingsEndpoint.class))
+				.hasRole("ACTUATOR");
+		requests.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll();
+		requests.antMatchers("/foo").permitAll();
+		requests.antMatchers("/**").hasRole("USER");
+	});
+	http.cors(Customizer.withDefaults());
+	http.httpBasic();
 	}
+
 -----------------------------------------------
+
+
+-----------------------------------------------
+
+
+-----------------------------------------------
+
+
+-----------------------------------------------
+
+
+-----------------------------------------------
+
+
 
 -----------------------------------------------
 
 -----------------------------------------------
 
------------------------------------------------
------------------------------------------------
+
+
 
 -----------------------------------------------
 
------------------------------------------------
+
 
 -----------------------------------------------
 
------------------------------------------------
------------------------------------------------
+
 
 -----------------------------------------------
 
------------------------------------------------
+
 
 -----------------------------------------------
 
------------------------------------------------
------------------------------------------------
 
 -----------------------------------------------
 
------------------------------------------------
 
 -----------------------------------------------
 
------------------------------------------------
------------------------------------------------
+
 
 -----------------------------------------------
 
------------------------------------------------
+
 
 -----------------------------------------------
+
+
+
+-----------------------------------------------
+
+
+
+-----------------------------------------------
+
+
+
+-----------------------------------------------
+
+
+
+-----------------------------------------------
+
+
+-----------------------------------------------
+
+
+
+
+-----------------------------------------------
+
+
+
+-----------------------------------------------
+
+
+
+-----------------------------------------------
+
+
 
 -----------------------------------------------
