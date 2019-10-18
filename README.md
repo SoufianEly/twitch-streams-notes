@@ -755,29 +755,84 @@ AOP is a programming paradigm that aims to increase modularity by allowing the s
 AspectJ implements both concerns and the weaving of crosscutting concerns using extensions of Java programming language.
 
 AspectJ provides an implementation of AOP and has three core concepts:
-
 Join Point
 Pointcut
 Advice
 
 -----------------------------------------------
+org.atmosphere.cpr.AtmosphereServlet
+
+Chat service built using Atmosphere
+AtmosphereServlet that use Servlet 3.0 Async API when available, and fallback to native comet support if not available. For Tomcat6/7 and JBossWeb Native support, use atmosphere-native dependencies instead.
+
+-----------------------------------------------
+
+WebSockets is a bi-directional, full-duplex, persistent connection between a web browser and a server. Once a WebSocket connection is established the connection stays open until the client or server decides to close this connection.
+
+A typical use case could be when an app involves multiple users communicating with each other, like in a chat. We will build a simple chat client in our example.
+
+Java Object => Json Object -- Jackson
+
+-----------------------------------------------
+
+Spring websockets
+
+The first thing to do is to enable the WebSocket capabilities. To do this we need to add a configuration to our application and annotate this class with @EnableWebSocketMessageBroker.
+
+As its name suggests, it enables WebSocket message handling, backed by a message broker:
+
+@Configuration
+@EnableWebSocketMessageBroker
+public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
+ 
+    @Override
+    public void configureMessageBroker(MessageBrokerRegistry config) {
+        config.enableSimpleBroker("/topic");
+        config.setApplicationDestinationPrefixes("/app");
+    }
+ 
+    @Override
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
+         registry.addEndpoint("/chat");
+         registry.addEndpoint("/chat").withSockJS();
+    }
+}
 
 
 
 -----------------------------------------------
 
+A message broker is an architectural pattern for message validation, transformation, and routing. It mediates communication among applications, minimizing the mutual awareness that applications should have of each other in order to be able to exchange messages, effectively implementing decoupling
+
+The necessity of improving system integration caused the development of message brokers, that are especially important for data analytics and business intelligence. 
+
+STOMP is a simple interoperable protocol designed for asynchronous message passing between clients via mediating servers. It defines a text based wire-format for messages passed between these clients and servers.
+
+STOMP has been in active use for several years and is supported by many message brokers and client libraries. This specification defines the STOMP 1.2 protocol and is an update to STOMP 1.1.
+
+When a message broker is needed?
+
+1. If you want to control data feeds. For example, the number of registrations in any system.
+2. When the task is to put data to several applications and avoid direct usage of their API.
+3. The necessity to complete processes in a defined order like a transactional system.
+
+So, we can say that message brokers can do 4 important things:
+
+1. divide the publisher and consumer
+2. store the messages
+3. route messages
+4. check and organize messages
+
+(Message Brokers) [https://hackernoon.com/introduction-to-message-brokers-part-1-apache-kafka-vs-rabbitmq-8fd67bf68566]
+
 -----------------------------------------------
+[Batch & Stream Processing] (https://www.bmc.com/blogs/batch-processing-stream-processing-real-time/)
 
+Batch Processing
 
+Batch processing is the processing of a large volume of data all at once. The data easily consists of millions of records for a day and can be stored in a variety of ways (file, record, etc). The jobs are typically completed simultaneously in non-stop, sequential order. An example of a batch processing job is all of the transactions a financial firm might submit over the course of a week. It can also be used in payroll processes, line item invoices, and supply chain and fulfillment.
 
-
------------------------------------------------
-
-
-
------------------------------------------------
-
-
+[Spring Batch Advantages](https://stackoverflow.com/questions/26929308/advantages-of-spring-batch)
 
 -----------------------------------------------
 
