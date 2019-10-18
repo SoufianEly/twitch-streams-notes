@@ -538,7 +538,7 @@ Undertow is a flexible performant web server written in java, providing both blo
 
 -----------------------------------------------
 
-http://tutorials.jenkov.com/java-nio/index.html
+[Non-blocking I/O](http://tutorials.jenkov.com/java-nio/index.html)
 
 Working with non-blocking I/O
 
@@ -686,7 +686,7 @@ Firstly, we'd need to have the new endpoint implement the Endpoint<T> interface:
 
 -----------------------------------------------
 
-Src: https://www.baeldung.com/spring-boot-actuators
+[Spring-Boot-Actuators](https://www.baeldung.com/spring-boot-actuators)
 
 Enable All Endpoints
 
@@ -724,15 +724,41 @@ protected void configure(HttpSecurity http) throws Exception {
 
 -----------------------------------------------
 
+The Spring AMQP project applies core Spring concepts to the development of AMQP-based messaging solutions. It provides a "template" as a high-level abstraction for sending and receiving messages
 
 -----------------------------------------------
 
+java.util.concurrent.CountDownLatch
+
+CountDownLatch works in latch principle, the main thread will wait until the gate is open. One thread waits for n threads, specified while creating the CountDownLatch.
+
+Any thread, usually the main thread of the application, which calls CountDownLatch.await() will wait until count reaches zero or it's interrupted by another thread. All other threads are required to count down by calling CountDownLatch.countDown() once they are completed or ready.
+
+Use CountDownLatch when one thread (like the main thread) requires to wait for one or more threads to complete, before it can continue processing.
+
+A classical example of using CountDownLatch in Java is a server side core Java application which uses services architecture, where multiple services are provided by multiple threads and the application cannot start processing until all services have started successfully.
 
 -----------------------------------------------
 
+Package org.springframework.boot.loader.tools
+
+Tools for generating executable JAR/WAR files.
 
 -----------------------------------------------
 
+AOP Annotation 
+
+To quickly summarize, AOP stands for aspect orientated programming. Essentially, it is a way for adding behavior to existing code without modifying that code.
+
+AOP is a programming paradigm that aims to increase modularity by allowing the separation of cross-cutting concerns. It does so by adding additional behavior to existing code without modification of the code itself. Instead, we declare separately which code is to modify.
+
+AspectJ implements both concerns and the weaving of crosscutting concerns using extensions of Java programming language.
+
+AspectJ provides an implementation of AOP and has three core concepts:
+
+Join Point
+Pointcut
+Advice
 
 -----------------------------------------------
 
