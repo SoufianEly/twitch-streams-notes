@@ -857,7 +857,7 @@ In-process caching enables objects to be stored in the same instance as the appl
 
 Distributed caches (key/value objects) can be built externally to an application that supports read/write to/from data repositories, keeps frequently accessed data in RAM, and avoid continuous fetching data from the data source. Such caches can be deployed on a cluster of multiple nodes, forming a single logical view. Caching clients use hashing algorithms to determine the location of an object in a cluster node.
 
-
+5. 
 
 [Spring Cache](https://www.baeldung.com/spring-cache-tutorial)
 
