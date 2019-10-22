@@ -31,16 +31,24 @@ SELECT * FROM items WHERE owner = 'wiley' AND itemname = 'name' **OR 'a'='a'**;
 #### Attack Intent
 
 **Identifying injectable parameters**
+
 **Determining database schema**
+
 **Extracting data**
+
 **Performing denial of service**
+
 **Evading detection**
+
 **Bypassing authentication**
+
 **Executing remote commands**
+
 **Performing privilege escalation**
+
 **Performing database finger-printing**
 
-#### Injection Mechanisms
+### Injection Mechanisms
 
 ##### Injection through user input 
 
