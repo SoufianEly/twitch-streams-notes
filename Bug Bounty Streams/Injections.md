@@ -28,7 +28,7 @@ SELECT * FROM items WHERE owner = &lt;userName&gt; AND itemname = &lt;itemName&g
 
 SELECT * FROM items WHERE owner = 'wiley' AND itemname = 'name' **OR 'a'='a'**;
 
-#### Attack Intent
+### Attack Intent
 
 **Identifying injectable parameters**
 
@@ -47,6 +47,7 @@ SELECT * FROM items WHERE owner = 'wiley' AND itemname = 'name' **OR 'a'='a'**;
 **Performing privilege escalation**
 
 **Performing database finger-printing**
+
 
 ### Injection Mechanisms
 
@@ -93,36 +94,67 @@ Pseudo remedies
 **Reading**
 
 https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet
+
 https://www.acunetix.com/blog/articles/in-depth-sql-injection/
+
 https://www.cc.gatech.edu/fac/Alex.Orso/papers/halfond.viegas.orso.ISSSE06.pdf
+
 https://www.owasp.org/index.php/SQL_Injection_Bypassing_WAF
+
 https://medium.com/bugbountywriteup/sql-injection-with-load-file-and-into-outfile-c62f7d92c4e2
+
 https://medium.com/@tomnomnom/making-a-blind-sql-injection-a-little-less-blind-428dcb614ba8
+
 https://medium.com/bugbountywriteup/sql-injection-time-and-boolean-based-27239b6a55e8
+
 
 
 **Bug Bounty Reports**
 
 [1] https://hackerone.com/reports/297478
+
 [2] https://hackerone.com/reports/531051
+
 [3] https://hackerone.com/reports/446293
+
 [4] https://hackerone.com/reports/363815
+
 [5] https://hackerone.com/reports/374027
+
 [6] https://hackerone.com/reports/353784
+
 [7] https://hackerone.com/reports/319279
+
 [8] https://hackerone.com/reports/384397
+
 [9] https://hackerone.com/reports/419017
+
 [10] https://hackerone.com/reports/435066
+
 [11] https://hackerone.com/reports/358570
+
 [12] https://hackerone.com/reports/506654
+
 [13] https://hackerone.com/reports/549355
+
 [14] https://hackerone.com/reports/310031
+
 [15] https://hackerone.com/reports/381758
+
 [16] https://hackerone.com/reports/179751
+
 [17] https://hackerone.com/reports/164739
+
 [18] https://hackerone.com/reports/311244
+
 [19] https://hackerone.com/reports/150156
+
 [20] https://hackerone.com/reports/374748
+
 [21] https://hackerone.com/reports/200818
+
 [22] https://hackerone.com/reports/178057
+
 [23] https://hackerone.com/reports/381771
+
+
