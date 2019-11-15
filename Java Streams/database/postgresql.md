@@ -462,5 +462,6 @@ SELECT ARRAY(SELECT oid FROM pg_proc WHERE proname LIKE 'bytea%');
 -----
 
 [We-are-going-to-continue-from-here](https://www.postgresql.org/docs/12/sql-syntax-calling-funcs.html)
+We have to repeat everyday...
 
 
